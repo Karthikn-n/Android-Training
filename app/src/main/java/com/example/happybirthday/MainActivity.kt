@@ -13,8 +13,11 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.happybirthday.screens.ComposeTutorial
-import com.example.happybirthday.screens.GreetingText
+import com.example.happybirthday.basics.ComposeTutorial
+import com.example.happybirthday.basics.GreetingText
+import com.example.happybirthday.basics.MyProfile
+import com.example.happybirthday.basics.QuadrantTutorial
+import com.example.happybirthday.basics.TaskCompletion
 import com.example.happybirthday.ui.theme.HappyBirthdayTheme
 
 class MainActivity : ComponentActivity() {
@@ -37,6 +40,9 @@ class MainActivity : ComponentActivity() {
                             navController
                         )}
                         composable("screen2") { ComposeTutorial(Modifier, navController) }
+                        composable("screen3") { TaskCompletion(Modifier, navController) }
+                        composable("screen4") { QuadrantTutorial(Modifier, navController) }
+                        composable("screen5") { MyProfile( navController) }
                     }
                 }
             }
