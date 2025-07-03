@@ -1,5 +1,8 @@
 package com.example.happybirthday.oop
 
+import kotlin.properties.ReadWriteProperty
+import kotlin.reflect.KProperty
+
 /*
 * In kotlin all the classes are final by default so do inherit and use them
 * Mentions that as open*/
@@ -24,10 +27,9 @@ class SmartTv(
     name: String = "Android TV",
     hasSpeaker: Boolean = true,
     digital: String = "Yes",
-    var volume : Int = 10,
-    var channel: Int = 1
 ) : SmartDevice(name, hasSpeaker, digital) {
-
+    private var speakerVolume by RangeRegulator(initialValue = 2, min = 0, max = 100)
+    private var channelVolume by RangeRegulator(initialValue = 1, min = 1, max = 225)
     fun turnOn() {
         println("Smart TV turned on")
     }
@@ -35,13 +37,13 @@ class SmartTv(
         println("Smart TV turned off")
     }
     fun increaseSpeakerVolume() {
-        this.volume++
-        println("Speaker volume increased to ${this.volume}.")
+        speakerVolume++
+        println("Speaker volume increased to ${speakerVolume}.")
     }
 
-    fun changeChannel(channel: Int = this.channel) {
-        this.channel = channel
-        println("Changed the channel to ${this.channel}")
+    fun changeChannel(channel: Int = channelVolume) {
+        this.channelVolume = channel
+        println("Changed the channel to ${channelVolume}")
     }
 }
 /*
@@ -50,20 +52,17 @@ class SmartTv(
 class SmartLightDevice(deviceName: String, deviceCategory: String) :
     SmartDevice(name = deviceName, category = deviceCategory) {
 
-    var brightnessLevel = 0
-        set(value) {
-            if (value in 0..100) {
-                field = value
-            }
-        }
+    private var brightnessLevel by RangeRegulator(initialValue = 25, min = 0, max = 100)
     fun increaseBrightness() {
         brightnessLevel++
         println("Brightness increased to $brightnessLevel.")
     }
     fun turnOn() {
+        brightnessLevel = 25
         println("Smart light turned on")
     }
     fun turnOff() {
+        brightnessLevel = 0
         println("Smart light turned off")
     }
     override fun welcome(message: String) {
@@ -113,6 +112,28 @@ class SmartHome(
     fun turnOffAllDevices() {
         turnOffTv()
         turnOffLight()
+    }
+
+}
+
+class RangeRegulator (
+    initialValue: Int,
+    private val min: Int,
+    private val max: Int
+): ReadWriteProperty<Any?, Int>{
+    var fieldValue = initialValue
+    override fun getValue(thisRef: Any?, property: KProperty<*>): Int {
+        return fieldValue
+    }
+
+    override fun setValue(
+        thisRef: Any?,
+        property: KProperty<*>,
+        value: Int
+    ) {
+        if(fieldValue in min..max){
+            fieldValue = value
+        }
     }
 
 }
