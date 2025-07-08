@@ -5,8 +5,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -19,6 +21,7 @@ import com.example.happybirthday.basics.MyProfile
 import com.example.happybirthday.basics.QuadrantTutorial
 import com.example.happybirthday.basics.TaskCompletion
 import com.example.happybirthday.ui.theme.HappyBirthdayTheme
+import com.example.happybirthday.unit2.DiceWithButtonAndImage
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +46,10 @@ class MainActivity : ComponentActivity() {
                         composable("screen3") { TaskCompletion(Modifier, navController) }
                         composable("screen4") { QuadrantTutorial(Modifier, navController) }
                         composable("screen5") { MyProfile( navController) }
+                        composable("screen6") { DiceWithButtonAndImage(
+                            modifier = Modifier.fillMaxSize().wrapContentSize(align = Alignment.Center),
+                            navController = navController
+                        ) }
                     }
                 }
             }

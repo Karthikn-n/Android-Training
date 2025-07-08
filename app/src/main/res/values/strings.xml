@@ -41,4 +41,6 @@
     <string name="phone_no">+91 88389 55205</string>
     <string name="git_profile">/github.com/Karthikn-n</string>
     <string name="email">karthikn11092001@gmail.com</string>
+    <string name="roll">Roll</string>
+    <string name="next">Next</string>
 </resources>
