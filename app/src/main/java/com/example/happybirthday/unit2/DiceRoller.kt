@@ -45,7 +45,7 @@ fun DiceWithButtonAndImage(modifier: Modifier, navController: NavHostController)
         }
         Button(
             onClick = {
-                navController.navigate("screen2")
+                navController.navigate("screen7")
             }
         ) {
             Text(stringResource(R.string.next))

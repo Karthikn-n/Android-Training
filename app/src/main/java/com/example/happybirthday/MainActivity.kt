@@ -3,6 +3,7 @@ package com.example.happybirthday
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
@@ -17,6 +18,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.happybirthday.basics.ComposeTutorial
 import com.example.happybirthday.basics.GreetingText
+import com.example.happybirthday.basics.Lemonade
 import com.example.happybirthday.basics.MyProfile
 import com.example.happybirthday.basics.QuadrantTutorial
 import com.example.happybirthday.basics.TaskCompletion
@@ -50,6 +52,7 @@ class MainActivity : ComponentActivity() {
                             modifier = Modifier.fillMaxSize().wrapContentSize(align = Alignment.Center),
                             navController = navController
                         ) }
+                        composable("screen7") { Lemonade(modifier = Modifier, navController = navController) }
                     }
                 }
             }
