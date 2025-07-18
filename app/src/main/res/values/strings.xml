@@ -51,4 +51,11 @@
     <string name="lemon">Lemon</string>
     <string name="lemonade">Glass of lemonade</string>
     <string name="empty">Empty glass</string>
+<!--    Tip calculator -->
+    <string name="tip_time">Tip Time</string>
+    <string name="calculate_tip">Calculate Tip</string>
+    <string name="bill_amount">Bill Amount</string>
+    <string name="tip_amount">Tip Amount: %s</string>
+    <string name="how_was_the_service">Tip Percentage</string>
+    <string name="round_up_tip">Round up tip?</string>
 </resources>

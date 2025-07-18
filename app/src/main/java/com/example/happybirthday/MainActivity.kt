@@ -22,6 +22,7 @@ import com.example.happybirthday.basics.Lemonade
 import com.example.happybirthday.basics.MyProfile
 import com.example.happybirthday.basics.QuadrantTutorial
 import com.example.happybirthday.basics.TaskCompletion
+import com.example.happybirthday.basics.TipCalculator
 import com.example.happybirthday.ui.theme.HappyBirthdayTheme
 import com.example.happybirthday.unit2.DiceWithButtonAndImage
 
@@ -37,7 +38,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    NavHost(navController, startDestination = "screen1") {
+                    NavHost(navController, startDestination = "screen8") {
                         composable("screen1") { GreetingText(
                             message = stringResource(R.string.happy_birthday_sam),
                             from = stringResource(R.string.signature_text),
@@ -53,6 +54,7 @@ class MainActivity : ComponentActivity() {
                             navController = navController
                         ) }
                         composable("screen7") { Lemonade(modifier = Modifier, navController = navController) }
+                        composable("screen8") { TipCalculator(modifier = Modifier, navController = navController) }
                     }
                 }
             }
