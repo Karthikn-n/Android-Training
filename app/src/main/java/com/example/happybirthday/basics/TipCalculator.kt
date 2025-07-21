@@ -44,7 +44,7 @@ import com.example.happybirthday.R
 import java.text.NumberFormat
 
 @Composable
-fun TipCalculator(modifier: Modifier, navController: NavHostController) {
+fun TipCalculator(modifier: Modifier) {
     //    we have to use the remember to maintain the state of the value in composable
     var amountInput by remember { mutableStateOf("") }
     var tipInput by remember { mutableStateOf("") }
@@ -107,7 +107,7 @@ fun TipCalculator(modifier: Modifier, navController: NavHostController) {
 }
 
 @VisibleForTesting
-internal fun calculateTip(amount: Double, tipPercent: Double = 15.0, roundUp: Boolean): String {
+fun calculateTip(amount: Double, tipPercent: Double = 15.0, roundUp: Boolean): String {
     var tip = tipPercent / 100 * amount
     if (roundUp) {
         tip = kotlin.math.ceil(tip)

@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
                             navController = navController
                         ) }
                         composable("screen7") { Lemonade(modifier = Modifier, navController = navController) }
-                        composable("screen8") { TipCalculator(modifier = Modifier, navController = navController) }
+                        composable("screen8") { TipCalculator(modifier = Modifier) }
                     }
                 }
             }

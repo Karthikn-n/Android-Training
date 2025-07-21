@@ -1,8 +1,9 @@
 package com.example.happybirthday.basics
 
-import android.icu.text.NumberFormat
+import java.text.NumberFormat
 import org.junit.Assert.assertEquals
 import org.junit.Test
+
 class TipCalculatorTests {
 
     @Test
