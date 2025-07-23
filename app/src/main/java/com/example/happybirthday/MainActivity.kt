@@ -3,7 +3,6 @@ package com.example.happybirthday
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
@@ -23,6 +22,8 @@ import com.example.happybirthday.basics.MyProfile
 import com.example.happybirthday.basics.QuadrantTutorial
 import com.example.happybirthday.basics.TaskCompletion
 import com.example.happybirthday.basics.TipCalculator
+import com.example.happybirthday.tasks.AffirmationApp
+import com.example.happybirthday.tasks.TopicGrid
 import com.example.happybirthday.ui.theme.HappyBirthdayTheme
 import com.example.happybirthday.unit2.DiceWithButtonAndImage
 
@@ -38,7 +39,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    NavHost(navController, startDestination = "screen8") {
+                    NavHost(navController, startDestination = "screen9") {
                         composable("screen1") { GreetingText(
                             message = stringResource(R.string.happy_birthday_sam),
                             from = stringResource(R.string.signature_text),
@@ -55,6 +56,7 @@ class MainActivity : ComponentActivity() {
                         ) }
                         composable("screen7") { Lemonade(modifier = Modifier, navController = navController) }
                         composable("screen8") { TipCalculator(modifier = Modifier) }
+                        composable("screen9") { TopicGrid(modifier = Modifier) }
                     }
                 }
             }
